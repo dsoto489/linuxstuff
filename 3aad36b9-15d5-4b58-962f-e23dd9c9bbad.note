@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>GitLab Documentation</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">GitLab Documentation	
+
+1. navigate to gitlab.empoweredbenefits.com
+	&gt;cvmanager
+2. In sandbox branch, cvmanager-dev.yaml, update yaml file path, 
+3. git rm
+4. cd Empowered/GitLab/cvmanager
+5.
+6.
+7.
+8.
+9.
+10.
+</note-content>
+</text><last-change-date>2018-08-28T20:05:09.537158Z</last-change-date><last-metadata-change-date>2018-08-28T20:05:09.537693Z</last-metadata-change-date><create-date>2018-08-28T19:51:28.128001Z</create-date><cursor-position>207</cursor-position><selection-bound-position>-1</selection-bound-position><width>0</width><height>0</height></note>
+

@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>minikube</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">minikube
+
+<link:url>https://kubernetes.io/docs/tutorials/hello-minikube/#create-a-minikube-cluster</link:url>
+
+Installation:
+1. Make sure you have a hypervisor installed
+
+    For macOS, install VirtualBox or VMware Fusion, or HyperKit.
+
+    For Linux, install VirtualBox or KVM.
+<link:url>https://www.virtualbox.org/wiki/Downloads</link:url>
+
+    For Windows, install VirtualBox or Hyper-V.
+
+2. Install kubectl
+
+**You must use a kubectl version that is within one minor version difference with your cluster. For example, a v1.2 client should work with v1.1, v1.2, and v1.3 master. Using the latest version of kubectl helps avoid unforeseen issues
+
+Linux:
+
+	curl -LO <link:url>https://storage.googleapis.com/kubernetes-release/release/$(curl</link:url> -s <link:url>https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl</link:url>
+	chmod +x ./kubectl
+	sudo mv ./kubectl <link:url>/usr/local/bin/kubectl</link:url>
+
+3. Install Minikube
+
+curl -Lo minikube <link:url>https://storage.googleapis.com/minikube/releases/v0.28.2/minikube-linux-amd64</link:url> &amp;&amp; chmod +x minikube &amp;&amp; sudo mv minikube <link:url>/usr/local/bin/</link:url>
+
+	minikube start (stop)
+
+In order for kubectl to find and access a Kubernetes cluster, it needs a kubeconfig file, which is created automatically when you create a cluster using kube-up.sh or successfully deploy a Minikube cluster. 
+
+***E0731 10:19:10.370818   16745 start.go:180] Error starting host:  Error creating host: Error executing step: Running precreate checks.
+: VirtualBox is configured with multiple host-only adapters with the same IP &quot;192.168.50.1&quot;. Please remove one
+
+VirtualBox &gt;&gt; Global Tools » Host Network Manager (remove hosts)
+
+Now set the Minikube context. The context is what determines which cluster kubectl is interacting with. You can see all your available contexts in the <link:url>~/.kube/config</link:url> file.
+
+	kubectl config use-context minikube
+
+Verify that kubectl is configured to communicate with your cluster:
+
+	kubectl cluster-info
+
+Open the Kubernetes dashboard in a browser:
+
+	minikube dashboard
+
+
+4.Install Node.js
+
+	curl --silent --location <link:url>https://rpm.nodesource.com/setup_8.x</link:url> | sudo bash -
+	sudo yum install -y nodejs
+
+	mkdir hellonode
+	vi server.js
+
+		var http = require('http');
+
+		var handleRequest = function(request, response) {
+ 		 console.log('Received request for URL: ' + request.url);
+  		response.writeHead(200);
+ 		 response.end('Hello World!');
+		};
+		var www = http.createServer(handleRequest);
+		<link:url>www.listen(8080</link:url>);
+
+	Run your application:
+
+		node server.js  (**make sure you are in the 'hellonode' directory)
+
+<list><list-item><list><list-item dir="ltr">You should be able to see your “Hello World!” message at <link:url>http://localhost:8080/</link:url>.</list-item></list></list-item></list>
+
+		Stop the running Node.js server by pressing Ctrl-C
+
+5. Create a Docker Image Container
+
+	Create a file, also in the hellonode folder, named Dockerfile.
+	
+
+	Dockerfile:
+		FROM node:6.9.2
+		EXPOSE 8080
+		COPY server.js .
+		CMD node server.js
+
+This recipe for the Docker image starts from the official Node.js LTS image found in the Docker registry, exposes port 8080, copies your server.js file to the image and starts the Node.js server.
+
+Because this tutorial uses Minikube, instead of pushing your Docker image to a registry, you can simply build the image using the same Docker host as the Minikube VM, so that the images are automatically present. To do so, make sure you are using the Minikube Docker daemon:
+
+	eval $(minikube docker-env)
+
+Note: Later, when you no longer wish to use the Minikube host, you can undo this change by running:
+
+	 eval $(minikube docker-env -u).
+
+Build your Docker image, using the Minikube Docker daemon (mind the trailing dot):
+
+	docker build -t hello-node:v1 .
+
+7. Create a deployment
+	
+Use the kubectl run command to create a Deployment that manages a Pod. The Pod runs a Container based on your hello-node:v1 Docker image. Set the --image-pull-policy flag to Never to always use the local image, rather than pulling it from your Docker registry (since you haven’t pushed it there):
+
+	kubectl run hello-node --image=hello-node:v1 --port=8080 --image-pull-policy=Never
+
+View the Deployment:
+
+	kubectl get deployments
+
+View the Pod:
+
+	kubectl get pods
+
+View cluster events:
+
+	kubectl get events
+
+View the kubectl configuration:
+
+	kubectl config view
+
+8. Create a Service
+
+From your development machine, you can expose the Pod to the public internet using the kubectl expose command:
+
+	kubectl expose deployment hello-node --type=LoadBalancer
+
+**The '--type=LoadBalancer' flag indicates that you want to expose your Service outside of the cluster. 
+
+View the Service you just created:
+
+	kubectl get services
+
+On Minikube, the LoadBalancer type makes the Service accessible through the minikube service command.
+
+	minikube service hello-node
+
+This automatically opens up a browser window using a local IP address that serves your app and shows the “Hello World” message.
+	
+Assuming you’ve sent requests to your new web service using the browser or curl, you should now be able to see some logs:
+
+	kubectl logs &lt;POD-NAME&gt;
+	
+	kubectl get pods &lt;---to get pod name/id
+
+9. Update App
+
+	Edit your server.js file to change the message output:
+
+		response.end('Hello World Again!');
+
+	Build a new version of your image (mind the trailing dot):
+
+		docker build -t hello-node:v2 .
+
+	Update the image of your Deployment:	
+	
+		kubectl set image deployment/hello-node hello-node=hello-node:v2
+
+	Run your app again to view the new message:
+
+		minikube service hello-node
+
+		minikube service hello-node --url
+
+
+
+
+
+</note-content>
+</text><last-change-date>2018-08-01T19:14:53.468452Z</last-change-date><last-metadata-change-date>2018-08-01T19:14:53.468565Z</last-metadata-change-date><create-date>2018-07-31T13:22:41.158734Z</create-date><cursor-position>1853</cursor-position><selection-bound-position>1874</selection-bound-position><width>1052</width><height>853</height></note>
+

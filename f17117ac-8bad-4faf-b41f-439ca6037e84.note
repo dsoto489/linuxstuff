@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>New Note 5</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">New Note 5
+
+yarn
+
+<link:internal>jenkins</link:internal> tried upgrading,
+upgrading react didnt work
+
+empty cluster
+rename exactly
+only thing to change is switch-context
+change project ID to match new project ID, should deploy
+
+couldnt find GIT binary
+
+<link:url>wglass@131-main.com</link:url></note-content>
+</text><last-change-date>2018-07-02T18:41:03.032051Z</last-change-date><last-metadata-change-date>2018-07-02T18:41:03.032902Z</last-metadata-change-date><create-date>2018-07-02T15:19:01.459270Z</create-date><cursor-position>241</cursor-position><selection-bound-position>241</selection-bound-position><width>0</width><height>0</height></note>
+

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>New Note 4</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">New Note 4
+
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(&quot;2&quot;) do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # <link:url>https://docs.vagrantup.com</link:url>.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at <link:url>https://vagrantcloud.com/search</link:url>.
+  config.vm.box = &quot;bento/centos-7.3&quot;
+
+
+  config.vm.define &quot;master&quot; do |master|
+    client.vm.hostname = &quot;master&quot;
+    client.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
+  end
+  config.vm.define &quot;minion&quot; do |minion|
+    web.vm.hostname = &quot;minion&quot;
+    web.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.20&quot;
+  end
+end
+
+
+192.168.50.10</note-content>
+</text><last-change-date>2018-06-26T15:25:42.630470Z</last-change-date><last-metadata-change-date>2018-06-26T15:25:42.630940Z</last-metadata-change-date><create-date>2018-06-26T14:44:15.973058Z</create-date><cursor-position>914</cursor-position><selection-bound-position>927</selection-bound-position><width>600</width><height>450</height></note>
+

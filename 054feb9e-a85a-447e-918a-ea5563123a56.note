@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>Vagrant/Salt-Stack Installation</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">Vagrant/Salt-Stack Installation
+
+Vagrant:
+cd <link:url>/etc/yum.repos.d/</link:url>
+
+wget <link:url>http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo</link:url>
+
+yum update
+
+yum install binutils qt gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
+
+<link:url>/usr/lib/virtualbox/vboxdrv.sh</link:url> setup
+____
+  201  yum remove VirtualBox-4*
+  202  cd <link:url>/etc/yum.repos.d/</link:url>
+  203  wget <link:url>http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo</link:url>
+  204  yum update
+  205  yum install VirtualBox-5.1
+  206  <link:url>/usr/lib/virtualbox/vboxdrv.sh</link:url> setup
+  207  usermod -a -G vboxusers dsoto
+
+Startup VB with:
+cli: VirtualBox
+
+yum -y install <link:url>https://releases.hashicorp.com/vagrant/1.9.6/vagrant_1.9.6_x86_64.rpm</link:url>
+
+mkdir /vagrant-home
+cd vagrant-home
+vagrant init centos/7
+
+# vagrant halt     [shutdown server]
+# vagrant up       [start server]
+# vagrant destroy  [delete server]
+
+
+
+Salt-Stack-Master: (Config file: <link:url>/etc/salt/master</link:url> )
+
+curl -L <link:url>https://bootstrap.saltstack.com</link:url> -o install_salt.sh
+sudo sh install_salt.sh -P -M
+
+Salt-Stack-Minion: (Config file: <link:url>/etc/salt/minion</link:url>)
+
+curl -L <link:url>https://bootstrap.saltstack.com</link:url> -o install_salt.sh
+sudo sh install_salt.sh -P</note-content>
+</text><last-change-date>2018-06-25T19:11:14.885607Z</last-change-date><last-metadata-change-date>2018-06-25T19:11:14.885787Z</last-metadata-change-date><create-date>2018-06-25T18:38:20.795970Z</create-date><cursor-position>855</cursor-position><selection-bound-position>-1</selection-bound-position><width>600</width><height>450</height></note>
+

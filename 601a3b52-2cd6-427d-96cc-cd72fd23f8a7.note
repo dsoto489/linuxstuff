@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>GoAgent/Server</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">GoAgent/Server	
+
+<link:url>https://www.gocd.org/getting-started/part-1/</link:url>
+
+
+To manage the go-server service, you may use the following commands -
+
+sudo <link:url>/etc/init.d/go-server</link:url> [start|stop|status|restart]
+
+
+
+
+To manage the go-agent service, you may use the following commands -
+
+sudo <link:url>/etc/init.d/go-agent</link:url> [start|stop|status|restart]
+
+<link:url>/var/lib/go-agent</link:url>      #contains the binaries
+<link:url>/usr/share/go-agent</link:url>    #contains the start script
+<link:url>/var/log/go-agent</link:url>      #contains the agent logs
+<link:url>/etc/default/go-agent</link:url>  #contains all the environment variables with default values. These variable values can be changed as per requirement
+
+docker pull gocd/gocd-server:v17.8.0
+
+docker run -d -p8153:8153 -p8154:8154 -v $HOME/godata:/godata -v $HOME:/home/go --name server gocd/gocd-server:v18.7.0
+
+docker run -itd -e GO_SERVER_URL=<link:url>https://$(docker</link:url> inspect --format='{{(index (index .NetworkSettings.IPAddress))}}' server):8154/go -e AGENT_AUTO_REGISTER_KEY=aa586c46-8e3c-4cab-8baa-07c0c7cc671d -e AGENT_AUTO_REGISTER_RESOURCES=ubuntu,gnu,openmpi -e AGENT_AUTO_REGISTER_ENVIRONMENTS=JEDI -e AGENT_AUTO_REGISTER_HOSTNAME=iris -v $HOME/goagent0:/godata -v $HOME:/home/go --name iris weatherlab/docker-gocd-agent-ubuntu-16.04
+
+
+docker run -itd -e GO_SERVER_URL=<link:url>https://$(docker</link:url> inspect --format='{{(index (index .NetworkSettings.IPAddress))}}' server):8154/go -e AGENT_AUTO_REGISTER_KEY=376f7136-f47f-491e-b5c9-fc9f6782740a -e AGENT_AUTO_REGISTER_RESOURCES=ubuntu,gnu,openmpi -e AGENT_AUTO_REGISTER_ENVIRONMENTS=JEDI -e AGENT_AUTO_REGISTER_HOSTNAME=bill -v $HOME/goagent1:/godata --name bill weatherlab/docker-gocd-agent-ubuntu-16.04
+
+
+docker cp <link:url>/home/dsoto/Downloads/docker-registry-artifact-plugin-1.0.0-3.jar</link:url> e44de87f6abc:/go-working-dir/plugins/bundled
+
+docker cp <link:url>/home/dsoto/Downloads/kubernetes-elastic-agent-1.0.1-107.jar</link:url> 6a07d6882137:/go-working-dir/plugins/bundled/
+
+
+secret_name=$(kubectl --namespace=gocd get serviceaccount gocd -o jsonpath=&quot;{.secrets[0].name}&quot;) kubectl --namespace=gocd get secret $secret_name -o jsonpath=&quot;{.data['token']}&quot; | base64 --decode
+</note-content>
+</text><last-change-date>2018-08-15T18:24:30.955434Z</last-change-date><last-metadata-change-date>2018-08-15T18:24:30.956231Z</last-metadata-change-date><create-date>2018-08-14T12:30:34.875904Z</create-date><cursor-position>1188</cursor-position><selection-bound-position>1593</selection-bound-position><width>566</width><height>450</height></note>
+

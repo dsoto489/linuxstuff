@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>sqlite3 and intern review</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">sqlite3 and intern review
+
+Describe your new note here.
+
+CREATE TABLE movietime (id INTEGER AUTOINCREMENT, title VARCHAR(50),director VARCHAR(30),year VARCHAR(4));
+
+
+INSERT INTO movietime (title, director, year) VALUES ('chillout', 'who cares', 1984);
+
+
+CREATE TABLE movietime (ID INTEGER PRIMARY KEY AUTOINCREMENT, title VARCHAR(50),director VARCHAR(30),year VARCHAR(4));
+
+
+image = Nokogiri::HTML(RestClient.get(&quot;<link:url>https://www.google.com/search?q=vampirese&amp;tbm=isch</link:url>&quot;)) 
+
+I feel like I was selected for this internship because of my eagerness to learn and adapt to new material. I feel our interactions during the interview process displayed my willingness to jump into the professional work environment. 
+
+Overall, I feel the internship has been a great experience. I have been able touch so much technology and software, giving me the ability to better understand the infrastructure and processes behind the company. The only issues I have ever been faced with is the initial shock of learning new languages and software. Once the initial learning curve wears off, I have been able to diver deeper and get a hold on each new tech. In addition, the Linux academy account has provided me with a wonderful understanding of different topics within a DevOps role. This has been an invaluable experience, one that I can take pride in.  Thank you!
+
+
+image = Nokogiri::HTML(RestClient.get(&quot;<link:url>https://www.google.com/search?q=vampirese&amp;tbm=isch</link:url>&quot;)) 
+
+
+
+
+
+        &lt;p&gt;&lt;/p&gt;
+        &lt;div align=&quot;center&quot;&gt;
+        &lt;div  align=&quot;center&quot;&gt;
+        &lt;form method=&quot;post&quot; action=&quot;/movies/create&quot;&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+            &lt;td style=&quot;font-family: 'Advent Pro', cursive;&quot; &gt;&lt;label for=&quot;title&quot;&gt;Title:&lt;/label&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;title&quot; required&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td style=&quot;font-family: 'Advent Pro', cursive;&quot;&gt;&lt;label for=&quot;director&quot;&gt;Director:&lt;/label&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;director&quot; required&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td style=&quot;font-family: 'Advent Pro', cursive;&quot;&gt;&lt;label for=&quot;year&quot;&gt;Year:&lt;/label&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;year&quot; required&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;div align=&quot;center&quot;&gt;
+            &lt;td&gt;
+            &lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button&quot;&gt;
+               &lt;i class=&quot;material-icons&quot; align=&quot;right&quot;&gt;add&lt;/i&gt;
+            &lt;/button&gt;
+                        &lt;/td&gt;
+
+            &lt;/div&gt;
+      &lt;div&gt;&lt;/div&gt;</note-content>
+</text><last-change-date>2018-07-27T19:31:30.669965Z</last-change-date><last-metadata-change-date>2018-07-27T19:31:30.671703Z</last-metadata-change-date><create-date>2018-07-23T14:47:14.315453Z</create-date><cursor-position>2477</cursor-position><selection-bound-position>-1</selection-bound-position><width>1098</width><height>450</height></note>
+

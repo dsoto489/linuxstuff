@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>New Ticket</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">New Ticket
+
+on computer <link:url>/home/dsoto</link:url>
+create  dir dsotorails (ruby app)
+docker run -it -v <link:url>/home/dsoto/dsotorails:/app</link:url> &lt;containername&gt; <link:url>/bin/bash</link:url>
+in /app dir, create a new rails project (rails new)
+
+     
+code . (launch editor)
+
+docker run -it -p 3000:3000 -v <link:url>/home/dsoto/dsotorails:/app</link:url> dsoto489/dsoto1:v8 <link:url>/bin/bash</link:url>
+
+(sh) instead of <link:url>/bin/bash</link:url>
+
+centos/rvm/ruby/rails
+
+</note-content>
+</text><last-change-date>2018-06-20T18:34:18.694884Z</last-change-date><last-metadata-change-date>2018-06-20T18:34:18.695018Z</last-metadata-change-date><create-date>2018-06-19T15:19:13.675556Z</create-date><cursor-position>364</cursor-position><selection-bound-position>-1</selection-bound-position><width>0</width><height>0</height></note>
+

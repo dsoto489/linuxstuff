@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>Docker Stuff</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">Docker Stuff
+
+
+#docker stuff
+
+docker run &lt;image&gt; #runs images on dockerhub
+or
+docker run &lt;portmapping&gt; &lt;image&gt;
+ex.[docker run -p 8080:80 &lt;image&gt; ]
+
+docker pull &lt;image&gt;
+
+docker search &lt;imagename&gt; #searches dockerhub, and lists matching images
+docker start &lt;name|id&gt;
+docker stop &lt;name|id&gt;
+docker ps [-a include stopped containers]
+docker rm &lt;name|id&gt; #remove containers
+
+docker kill $(docker ps -q) &lt;----kill all running containers
+docker rm $(docker ps -a -q) &lt;----remove all stopped containers 
+	$() &lt;--allows nesting as opposed to ' ' 
+docker rm 'docker ps -a -q'
+docker rmi -f &lt;imageid,imageid...&gt; #forces removal of images
+docker rmi $(docker images -q) #remove all images
+
+docker exec -it cont_id/name <link:url>/bin/bash</link:url>
+docker run -it * <link:url>/bin/bash</link:url>
+
+docker inspect &lt;image/id&gt;
+
+
+docker attach &lt;containerID&gt;
+(docker ps -a) docker start &lt;containerID&gt;  &lt;---starting a container that has stopped
+docker exec &lt;--execute something in a running container
+docker exec -it &lt;containerID&gt; <link:url>/bin/bash</link:url>
+docker stop
+docker start
+docker restart
+
+nginx index folder: <link:url>/etc/nginx</link:url>
+docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH [flags]
+ex. docker cp index.html 040dc78d3934:etc/nginx
+
+*Copy files from local machine to container or container to local machine
+
+
+service docker restart #restarts docker service(daemon)
+
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+
+yum install which
+
+source <link:url>/usr/local/rvm/scripts/rvm</link:url>
+
+\curl -sSL <link:url>https://get.rvm.io</link:url> | bash -s stable --ruby
+
+usermod -a -G rvm `whoami`
+
+rvm install ruby-2.2.2
+
+gem install sinatra
+
+docker pull dsoto489/dsoto1:centos-ruby-sinatra
+
+docker push sonatype.empoweredbenefits.com:6666/dsoto489:latest
+
+ex. boxIP: 172.31.38.241
+
+vi <link:url>/etc/hosts</link:url>
+172.31.38.241 docker.me
+
+dockerHub: dsoto489 [Um91bmRIb3VzZTIyLyE=]
+
+
+DOCKERFILE INFO:
+
+vi Dockerfile  &lt;----open veditor to start creating a file called 'Dockerfile'
+
+FROM      &lt;---looks locally, then to online repos
+
+MAINTAINER latest123 &lt;<link:url>latest123@linuxacademy.com</link:url>&gt; &lt;--person who maintains the dockerfile
+
+RUN apt-get update
+RUN apt-get upgrade &lt;-install packages necessary for container when built
+RUN apt-get install telnet
+
+example:
+FROM centos:latest
+MAINTAINER latest123 &lt;<link:url>latest123@linuxacademy.com</link:url>
+
+RUN yum update
+RUN yum upgrade
+
+or
+
+FROM centos:latest
+MAINTAINER latest123 &lt;<link:url>latest123@linuxacademy.com</link:url>
+
+RUN &lt;---runs it as container starts up
+
+CMD  &lt;--runs it after container is up
+
+or 
+
+FROM centos:latest
+MAINTAINER latest123 &lt;<link:url>latest123@linuxacademy.com</link:url>
+
+RUN yum update &amp;&amp;  yum upgrade &amp;&amp; yum install -y apache2 telnet elinks openssh-server
+
+ENV MYVALUE my-value
+
+EXPOSE 80
+EXPOSE 22
+
+CMD  [&quot;/usr/sbin/apache2ctl&quot;,&quot;-D&quot;,&quot;FOREGROUND&quot;]
+
+
+__________
+FROM centos:latest
+
+# Install basic packages
+RUN apt-get update &amp;&amp; apt-get install -y build-essential git libpq-dev
+
+ENV app /app
+RUN mkdir $app
+WORKDIR $app
+ADD . $app
+
+ENV BUNDLE_PATH /gems
+___________
+docker build -t latest123/myapache .  
+		&lt;-- . pulls from local directory and includes everything in the context of that directory
+			Can make build sizes/time rather large unless Dockerfile is stored in a small directory
+
+
+
+For my project contatnier:
+
+
+docker build - &lt; Dockerfile -t dsoto/centrubyrvm:latest
+
+
+</note-content>
+</text><last-change-date>2018-07-17T14:32:20.199727Z</last-change-date><last-metadata-change-date>2018-07-17T14:32:20.199905Z</last-metadata-change-date><create-date>2018-06-13T12:49:23.746671Z</create-date><cursor-position>430</cursor-position><selection-bound-position>458</selection-bound-position><width>920</width><height>400</height></note>
+

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>Pipeline Notes</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">Pipeline Notes	
+
+Step 1:
+Login to Rancher
+Login to Bitbucket &gt; devops &gt; gateway services/language services/marketing site
+
+clone onto local box
+
+cd Bitbucket
+cd marketing-site/
+git pull 
+code .
+jenkinsfile
+
+
+
+DevCLuster
+
+in Rancher: projects &gt; addproject &gt; 'MarketingSite' &gt; create
+
+click add namespace to project 'nsmarketingsite' &gt; create
+
+click Project: MarketingSite
+
+click Registries &gt; addRegistry &gt;  name = 'sonatype'
+
+click Custom &gt; enter: sonatype.empoweredbenefits.com:5555
+
+admin / admin123
+
+click register
+
+click Workloads &gt; deploy &gt; name= 'wlmarketingsite'
+1 pod
+docker image: empoweredeb/marketing.site:20
+namespace: nsmarketingsite
+addport: 3000 TCP NodePort Random
+FOr languageservices(env var: SPRING_PROFILES_ACTIVE = dev)
+show advanced options
+add label: workload.cattle.io
+rest is default: launch!
+
+to get <link:internal>jenkins</link:internal> image, go to <link:internal>jenkins</link:internal> &gt; devops &gt; gatewayservices &gt; master &gt; {current build number]
+to get ENV VAR: go to bitbucket &gt; montoya &gt; back-end &gt; docker-compose.yml
+
+cmd to get rancher context: rancher context switch
+put in makefile...
+rancher kubectl set image deployments/wlgatewayservices wlgatewayservices=sonatype.empoweredbenefits.com:5555/gateway-service:$(build) -n nsgatewayservices --insecure-skip-tls-verify=true
+
+ssh into  jenkinslave (rancherslave.int404.clt4) (login)  
+change:
+
+	rancher-context (change project id)
+	rancher-deploy: nsmarketingsite
+
+add ingress:
+name: lbmarketingsite
+namespace: nsmarketingsite
+rules: specify hostname to use : marketingsite1.empoweredbenefits.com
+choose workload &gt; wlmarketingsite
+port: 3000
+save
+
+add cert:
+
+vi <link:url>/etc/hosts</link:url>
+
+ssh rancherslave.int404.clt4
+rancher context switch
+cd BitBucket
+git status (see changes, if any, that need to commit)
+copy project ID:
+makefile &gt; rancher context &gt; paste new ID
+git commit -am &quot;Updated Makefule - Tommie&quot;
+git push
+cd MarketingSite
+get push
+
+verify: Jenkinstest.empoweredbenefits.com
+devops
+marketingsitetesting
+Build Now
+
+rancher add </note-content>
+</text><last-change-date>2018-07-03T18:24:40.865496Z</last-change-date><last-metadata-change-date>2018-07-03T18:24:40.866024Z</last-metadata-change-date><create-date>2018-07-03T13:26:01.476521Z</create-date><cursor-position>0</cursor-position><selection-bound-position>1947</selection-bound-position><width>0</width><height>0</height></note>
+

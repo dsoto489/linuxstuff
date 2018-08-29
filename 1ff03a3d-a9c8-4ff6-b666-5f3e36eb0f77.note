@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>docker ticket</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">docker ticket
+
+
+
+
+    Create a base container. 
+        Get a base centos container
+        Install ruby/sinatra
+        commit the container as a development container.
+
+    Use the development container to develop inside of. 
+        Write the code share it in 
+
+    Create a dockerfile to build the container. 
+    Push the container to sonatype
+    Launch the container in Rancher
+    Set up DNS.</note-content>
+</text><last-change-date>2018-06-13T13:02:53.474171Z</last-change-date><last-metadata-change-date>2018-06-13T13:02:53.474658Z</last-metadata-change-date><create-date>2018-06-13T13:02:31.461092Z</create-date><cursor-position>175</cursor-position><selection-bound-position>263</selection-bound-position><width>600</width><height>450</height></note>
+

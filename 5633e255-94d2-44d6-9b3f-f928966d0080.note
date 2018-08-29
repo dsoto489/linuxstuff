@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>/home/vagrant/fileDirectory:</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">/home/vagrant/fileDirectory:
+  file.managed:
+    - name: <link:url>/home/vagrant/fileDirectory/testFile.txt</link:url>
+    - source: salt://home/vagrant/inDir
+    - mode: 0775
+    - user: vagrant
+    - group: vagrant
+    - template: jinja
+    - replace: true</note-content>
+</text><last-change-date>2018-05-25T15:18:13.434881Z</last-change-date><last-metadata-change-date>2018-05-25T15:18:13.435107Z</last-metadata-change-date><create-date>2018-05-22T18:08:04.236219Z</create-date><cursor-position>237</cursor-position><selection-bound-position>237</selection-bound-position><width>600</width><height>450</height></note>
+

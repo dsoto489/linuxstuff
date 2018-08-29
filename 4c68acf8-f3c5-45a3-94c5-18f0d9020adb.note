@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>Jenkins</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">Jenkins	
+
+inside centos container:
+
+sudo wget -O <link:url>/etc/yum.repos.d/jenkins.repo</link:url> <link:url>http://pkg.jenkins-ci.org/redhat/jenkins.repo</link:url><strikethrough>
+
+</strikethrough>sudo rpm --import <link:url>https://jenkins-ci.org/redhat/jenkins-ci.org.key</link:url><strikethrough>
+
+</strikethrough>yum update
+
+yum install java-1.8.0-openjdk
+
+systemctl enable jenkins
+systemctl	start jenkins
+systemctl	status jenkins
+
+yum install nginx
+
+cd <link:url>/etc/nginx</link:url>
+vi nginx.conf</note-content>
+</text><last-change-date>2018-06-25T15:54:26.080399Z</last-change-date><last-metadata-change-date>2018-06-25T15:54:26.080930Z</last-metadata-change-date><create-date>2018-06-25T15:43:28.674781Z</create-date><cursor-position>359</cursor-position><selection-bound-position>-1</selection-bound-position><width>600</width><height>450</height></note>
+

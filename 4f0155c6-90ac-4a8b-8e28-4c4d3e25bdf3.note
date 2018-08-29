@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>New Note 2</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">New Note 2
+
+kubeadm join 172.31.27.39:6443 --token vhds2n.b66qwtrlwiqihi6q --discovery-token-ca-cert-hash sha256:06369eb3a0e93c9e7608b9df8298a4e8124347fffa211666bc8fdb50810d2cc9
+
+<list><list-item><list><list-item dir="ltr">kubeadm join 172.31.27.39:6443 --token vhds2n.b66qwtrlwiqihi6q --discovery-token-ca-cert-hash 
+</list-item></list></list-item><list-item dir="ltr">sha256:06369eb3a0e93c9e7608b9df8298a4e8124347fffa211666bc8fdb50810d2cc9</list-item></list></note-content>
+</text><last-change-date>2018-06-01T14:33:35.286485Z</last-change-date><last-metadata-change-date>2018-06-01T14:33:35.286680Z</last-metadata-change-date><create-date>2018-06-01T12:53:26.312846Z</create-date><cursor-position>349</cursor-position><selection-bound-position>349</selection-bound-position><width>1176</width><height>450</height></note>
+

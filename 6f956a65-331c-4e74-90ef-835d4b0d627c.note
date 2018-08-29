@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>Redis Ruby Container</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">Redis Ruby Container
+
+Redis/Ruby container
+
+Redis is an in-memory data structure store used to help building high-performance and scalable web applications, similar to Memcached, but with these main differences:
+
+    Redis can persist data to disk, making it a kind of NoSQL database, so data won’t disappear when restarting the server. This feature can be optionally disabled.
+    Redis can store more data types besides strings, such as Hashes, Lists, Sets and Sorted Sets. I will talk about them later.
+
+Redis can be used as a database, cache system, or a message-queue broker. It can also be used in a server group, using master-slave asynchronous replication.</note-content>
+</text><last-change-date>2018-06-27T11:15:21.170230Z</last-change-date><last-metadata-change-date>2018-06-27T11:15:21.170458Z</last-metadata-change-date><create-date>2018-06-26T17:30:09.780167Z</create-date><cursor-position>664</cursor-position><selection-bound-position>-1</selection-bound-position><width>600</width><height>450</height></note>
+

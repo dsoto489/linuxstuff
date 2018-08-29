@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>Gitlab setup</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">Gitlab setup
+
+
+Sign In: 
+<link:url>https://gitlab.empoweredbenefits.com/</link:url>
+
+Confluence Page:
+
+Prepare Nginx Load balancer for Gitlab pipelines
+Skip to end of metadata
+<link:url>https://confluence.empoweredbenefits.com/pages/viewpage.action?spaceKey=INF&amp;title=Prepare+Nginx+Load+balancer+for+Gitlab+pipelines</link:url>
+
+<link:url>git@gitlab.empoweredbenefits.com</link:url>
+
+dir: <link:url>~/Empowered/Gitlab</link:url>
+
+To install git-runner:
+curl -L <link:url>https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh</link:url> | sudo bash
+
+sudo yum install gitlab-runner
+
+sudo gitlab-runner register
+
+GitRunner URL: <link:url>https://gitlab.empoweredbenefits.com/</link:url>
+
+Token:  5gdQN4MPqPAz61txqg6T
+
+</note-content>
+</text><last-change-date>2018-08-23T13:06:37.656878Z</last-change-date><last-metadata-change-date>2018-08-23T13:06:37.657486Z</last-metadata-change-date><create-date>2018-08-20T14:38:26.273782Z</create-date><cursor-position>550</cursor-position><selection-bound-position>-1</selection-bound-position><width>600</width><height>450</height></note>
+

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy"><title>SaltState Copy files</title><text xml:space="preserve"><note-content version="0.1" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size">SaltState Copy files
+
+
+{% set testvar = salt['grains.get']('id', '') %}
+
+
+copy file from master to minion:
+  file.managed:
+    - name: <link:url>/srv/salt/test.txt</link:url>
+    - source: salt://test.txt
+    - makedirs: True
+    - user: root
+    - group: root
+    - mode: 644
+    - attrs: ai
+    - template: jinja
+    - context:
+       domain: {{ testvar }}
+    - defaults:
+        custom_var: &quot;default value&quot;
+        other_var: 123
+
+common_packages:
+  pkg.installed:
+    - pkgs:
+      - telnet
+
+</note-content>
+</text><last-change-date>2018-06-28T15:07:03.995108Z</last-change-date><last-metadata-change-date>2018-06-28T15:07:03.995691Z</last-metadata-change-date><create-date>2018-06-27T12:49:00.751856Z</create-date><cursor-position>23</cursor-position><selection-bound-position>475</selection-bound-position><width>600</width><height>450</height></note>
+
